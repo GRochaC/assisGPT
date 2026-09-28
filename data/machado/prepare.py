@@ -1,13 +1,18 @@
 import os
 import tiktoken
 import numpy as np
+from pdf_to_txt import main as pdf_to_txt
 
-input_file_path = os.path.join(os.path.dirname(__file__), 'data.txt')
+input_file_path = os.path.join(os.path.dirname(__file__), 'input.txt')
+
+if not os.path.exists(input_file_path):
+    print(f"Input file {input_file_path} does not exist. Generating it from PDFs...")
+    pdf_to_txt.convert_pdf_to_txt(dst_path=input_file_path)
 
 with open(input_file_path, 'r', encoding='utf-8') as f:
     data = f.read()
 n = len(data)
-print(f"Total characters in dataset: {n}")
+print(f"Total characters in dataset: {n:,}")
 train_data = data[:int(n*0.9)]
 val_data = data[int(n*0.9):]
 

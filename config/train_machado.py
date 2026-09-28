@@ -13,8 +13,8 @@ wandb_run_name = 'mini-gpt'
 
 dataset = 'machado'
 gradient_accumulation_steps = 1
-batch_size = 64
-block_size = 256 # context of up to 256 previous characters
+batch_size = 16
+block_size = 64
 
 # baby GPT model :)
 n_layer = 6
@@ -32,4 +32,4 @@ warmup_iters = 100 # not super necessary potentially
 
 # on macbook also add
 # device = 'cpu'  # run on cpu only
-# compile = False # do not torch compile the model
+compile = False # do not torch compile the model
