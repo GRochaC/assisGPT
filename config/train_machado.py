@@ -13,8 +13,8 @@ wandb_run_name = 'mini-gpt'
 
 dataset = 'machado'
 gradient_accumulation_steps = 1
-batch_size = 16
-block_size = 64
+batch_size = 8
+block_size = 256
 
 # baby GPT model :)
 n_layer = 6
