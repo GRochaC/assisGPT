@@ -18,9 +18,6 @@ def convert_pdf_to_txt(dst_path: str = None):
                     if num <= 2: # ignora as duas primeiras páginas 
                         continue
 
-                    if num == len(reader.pages) - 2: # ignora as duas últimas páginas
-                        break
-
                     text += page.extract_text() + '\n'
                 output_file.write("\n".join(line.lstrip(" \t") for line in text.split("\n")) + "\n")
                 print(f"Converted {filename} to text.")
